@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Command\Observer;
@@ -13,8 +14,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 class TemperatureReadingCommand extends Command
 {
     public function __construct(
-        private readonly TemperatureTransmissionService $service)
-    {
+        private readonly TemperatureTransmissionService $service
+    ) {
         parent::__construct();
     }
 
@@ -22,23 +23,21 @@ class TemperatureReadingCommand extends Command
     {
         $this
             ->setHelp('This command calculates the average temperature reading and displays on various temp monitors')
-            ->setDescription('This command calculates the average temperature reading and displays on various temp monitors')
+            ->setDescription('This command calculates the average temperature reading and displays on various
+             temp monitors')
             ->addOption('temp', 't', InputOption::VALUE_REQUIRED)
             ->addOption('processor', 'p', InputOption::VALUE_OPTIONAL);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        if(!$input->getOption('temp'))
-        {
+        if (!$input->getOption('temp')) {
             $output->writeln("Please specify a comma separated list of the temperature readings. 
             These should be numbers");
-
             return Command::FAILURE;
         }
 
-        if(!$input->getOption('processor'))
-        {
+        if (!$input->getOption('processor')) {
             $output->writeln("\nThe default processor is 'Average'\n");
         }
 
@@ -46,12 +45,9 @@ class TemperatureReadingCommand extends Command
             static fn($temp): float => floatval($temp),
             explode(',', trim($input->getOption('temp')))
         );
-
         $this->service->setTemperatureReadings($temperatures);
         $this->service->setProcessorType($input->getOption('processor') ?: 'average');
-
-       $this->service->notify();
-
+        $this->service->notify();
         return Command::SUCCESS;
     }
 }

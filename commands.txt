@@ -1,0 +1,7 @@
+//phpcs
+./vendor/bin/phpcs
+//phpcs fixer
+./vendor/bin/phpcbf
+
+./vendor/bin/phpcs --standard=PSR12 src
+./vendor/bin/phpcbf --standard=PSR12 src

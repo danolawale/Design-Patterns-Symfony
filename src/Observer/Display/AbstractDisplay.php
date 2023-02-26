@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Observer\Display;
@@ -14,10 +15,9 @@ class AbstractDisplay
     protected function getOutput(string $outputType): void
     {
         $output = ucfirst($outputType);
-
         echo sprintf(
             "%s: {$output} temperature is %f\n",
-            static::Display,
+            static::DISPLAY,
             $this->transmitter->getTemperatureReadingByOutputType($outputType)
         );
     }

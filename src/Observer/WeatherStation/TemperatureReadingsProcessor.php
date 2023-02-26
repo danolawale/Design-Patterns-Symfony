@@ -1,16 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Observer\WeatherStation;
 
 class TemperatureReadingsProcessor
 {
-    public const Average = 'average';
-    public const Max = 'max';
-    public const Min = 'min';
-
+    public const AVERAGE = 'average';
+    public const MAX = 'max';
+    public const MIN = 'min';
     public string $processorType;
-
     public function __construct(private ?array $readings = null)
     {
     }
@@ -18,8 +17,7 @@ class TemperatureReadingsProcessor
     public function setTemperatureReadings(array $readings): void
     {
         $this->readings ??= $readings;
-
-        if(empty($this->readings)) {
+        if (empty($this->readings)) {
             throw new \Exception(
                 "You must specify at least one temperature reading or a comma separated set of readings"
             );
@@ -28,8 +26,7 @@ class TemperatureReadingsProcessor
 
     public function setProcessorType(string $processorType): void
     {
-        if(!in_array($processorType, [self::Average, self::Max, self::Min]))
-        {
+        if (!in_array($processorType, [self::AVERAGE, self::MAX, self::MIN])) {
             throw new \Exception(sprintf("Invalid Output Type '%s'", $processorType));
         }
 
@@ -38,10 +35,10 @@ class TemperatureReadingsProcessor
 
     public function getProcessedReading(string $processorType): float
     {
-        return match($processorType) {
-            self::Average => $this->getAverageReading(),
-            self::Max => $this->getMaximumReading(),
-            self::Min => $this->getMinimumReading()
+        return match ($processorType) {
+            self::AVERAGE => $this->getAverageReading(),
+            self::MAX => $this->getMaximumReading(),
+            self::MIN => $this->getMinimumReading()
         };
     }
 
