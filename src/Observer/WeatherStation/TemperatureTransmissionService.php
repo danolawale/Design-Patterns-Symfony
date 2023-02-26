@@ -11,7 +11,8 @@ class TemperatureTransmissionService implements TemperatureTransmissionServiceIn
     /**
      * @var TemperatureDisplayInterface[] $displays
      */
-    private array $displays;
+    private array $displays = [];
+
     public function __construct(private readonly TemperatureReadingsProcessor $temperatureReadingsProcessor)
     {
     }
@@ -29,10 +30,10 @@ class TemperatureTransmissionService implements TemperatureTransmissionServiceIn
         }
     }
 
-    public function notify(): void
+    public function notify(string $processor): void
     {
         foreach ($this->displays as $display) {
-            $display->display($this->temperatureReadingsProcessor->processorType);
+            $display->display($processor);
         }
     }
 
@@ -41,14 +42,9 @@ class TemperatureTransmissionService implements TemperatureTransmissionServiceIn
         $this->temperatureReadingsProcessor->setTemperatureReadings($readings);
     }
 
-    public function setProcessorType(string $outputType): void
+    public function getTemperatureReading(string $processorType): float
     {
-        $this->temperatureReadingsProcessor->setProcessorType($outputType);
-    }
-
-    public function getTemperatureReadingByOutputType(string $outputType): float
-    {
-        return $this->temperatureReadingsProcessor->getProcessedReading($outputType);
+        return $this->temperatureReadingsProcessor->getProcessedReading($processorType);
     }
 }
 //./bin/console app:avg:temp:notify -temp30,50,60

@@ -6,9 +6,10 @@ namespace App\Observer\Display;
 
 class TabletDisplay extends AbstractDisplay implements TemperatureDisplayInterface
 {
-    public const DISPLAY = 'Tablet';
+    protected const DISPLAY = 'Tablet';
+
     public function display(string $outputType): void
     {
-        parent::getOutput($outputType);
+        parent::getOutput(self::DISPLAY, $outputType);
     }
 }

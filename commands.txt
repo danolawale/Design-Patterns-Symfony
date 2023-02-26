@@ -5,3 +5,6 @@
 
 ./vendor/bin/phpcs --standard=PSR12 src
 ./vendor/bin/phpcbf --standard=PSR12 src
+
+//psalm
+./vendor/bin/psalm --show-info=true

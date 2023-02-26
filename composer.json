@@ -15,7 +15,8 @@
         "symfony/yaml": "6.2.*"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "*"
+        "squizlabs/php_codesniffer": "*",
+        "vimeo/psalm": "^5.7"
     },
     "config": {
         "allow-plugins": {

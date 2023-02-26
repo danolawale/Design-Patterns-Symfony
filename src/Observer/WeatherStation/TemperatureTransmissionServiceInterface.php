@@ -8,5 +8,5 @@ interface TemperatureTransmissionServiceInterface
 {
     public function subscribe(TemperatureDisplayInterface $display): void;
     public function unsubscribe(TemperatureDisplayInterface $display): void;
-    public function notify(): void;
+    public function notify(string $processor): void;
 }

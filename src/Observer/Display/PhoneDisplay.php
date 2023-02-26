@@ -6,9 +6,10 @@ namespace App\Observer\Display;
 
 class PhoneDisplay extends AbstractDisplay implements TemperatureDisplayInterface
 {
-    public const DISPLAY = 'Phone';
+    protected const DISPLAY = 'Phone';
+
     public function display(string $outputType): void
     {
-        parent::getOutput($outputType);
+        parent::getOutput(self::DISPLAY, $outputType);
     }
 }

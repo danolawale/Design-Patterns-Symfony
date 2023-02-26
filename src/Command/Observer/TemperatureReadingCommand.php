@@ -45,9 +45,11 @@ class TemperatureReadingCommand extends Command
             static fn($temp): float => floatval($temp),
             explode(',', trim($input->getOption('temp')))
         );
+
         $this->service->setTemperatureReadings($temperatures);
-        $this->service->setProcessorType($input->getOption('processor') ?: 'average');
-        $this->service->notify();
+
+        $this->service->notify($input->getOption('processor') ?: 'average');
+
         return Command::SUCCESS;
     }
 }

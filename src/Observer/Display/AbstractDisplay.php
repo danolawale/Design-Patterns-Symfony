@@ -6,19 +6,19 @@ namespace App\Observer\Display;
 
 use App\Observer\WeatherStation\TemperatureTransmissionService;
 
-class AbstractDisplay
+abstract class AbstractDisplay
 {
     public function __construct(protected TemperatureTransmissionService $transmitter)
     {
     }
 
-    protected function getOutput(string $outputType): void
+    protected function getOutput(string $display, string $outputType): void
     {
         $output = ucfirst($outputType);
         echo sprintf(
             "%s: {$output} temperature is %f\n",
-            static::DISPLAY,
-            $this->transmitter->getTemperatureReadingByOutputType($outputType)
+            $display,
+            $this->transmitter->getTemperatureReading($outputType)
         );
     }
 }

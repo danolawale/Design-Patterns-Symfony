@@ -14,7 +14,7 @@ class Kernel extends BaseKernel implements CompilerPassInterface
 {
     use MicroKernelTrait;
 
-    protected function build(ContainerBuilder $container)
+    protected function build(ContainerBuilder $container): void
     {
         $container->registerForAutoconfiguration(TemperatureDisplayInterface::class)
             ->addTag('temperature.display');
@@ -22,7 +22,7 @@ class Kernel extends BaseKernel implements CompilerPassInterface
         //./bin/console debug:container phonedisplay
     }
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $definition = $container->findDefinition(TemperatureTransmissionService::class);
         $taggedObservers = $container->findTaggedServiceIds('temperature.display');
