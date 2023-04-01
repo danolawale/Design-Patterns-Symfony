@@ -8,3 +8,7 @@
 
 //psalm
 ./vendor/bin/psalm --show-info=true
+
+
+//use symfony composer serializer pack to process a csv file
+composer require serializer
