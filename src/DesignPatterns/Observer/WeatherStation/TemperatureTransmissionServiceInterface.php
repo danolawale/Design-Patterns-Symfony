@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Observer\WeatherStation;
+namespace App\DesignPatterns\Observer\WeatherStation;
 
-use App\Observer\Display\TemperatureDisplayInterface;
+use App\DesignPatterns\Observer\Display\TemperatureDisplayInterface;
 
 interface TemperatureTransmissionServiceInterface
 {

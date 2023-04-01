@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Observer\WeatherStation;
+namespace App\DesignPatterns\Observer\WeatherStation;
 
 class TemperatureReadingsProcessor
 {

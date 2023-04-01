@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Command\Observer;
 
-use App\Observer\WeatherStation\TemperatureTransmissionService;
+use App\DesignPatterns\Observer\WeatherStation\TemperatureTransmissionService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\{InputInterface, InputOption};

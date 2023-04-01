@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Builder;
+namespace App\DesignPatterns\Builder;
 
 class Computer
 {

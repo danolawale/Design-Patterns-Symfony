@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Observer\Display;
+namespace App\DesignPatterns\Observer\Display;
 
 class TabletDisplay extends AbstractDisplay implements TemperatureDisplayInterface
 {

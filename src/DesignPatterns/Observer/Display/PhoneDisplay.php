@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Observer\Display;
+namespace App\DesignPatterns\Observer\Display;
 
 class PhoneDisplay extends AbstractDisplay implements TemperatureDisplayInterface
 {

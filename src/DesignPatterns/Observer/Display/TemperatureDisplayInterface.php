@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Observer\Display;
+namespace App\DesignPatterns\Observer\Display;
 
 interface TemperatureDisplayInterface
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Observer\WeatherStation;
+namespace App\DesignPatterns\Observer\WeatherStation;
 
-use App\Observer\Display\TemperatureDisplayInterface;
+use App\DesignPatterns\Observer\Display\TemperatureDisplayInterface;
 
 class TemperatureTransmissionService implements TemperatureTransmissionServiceInterface
 {

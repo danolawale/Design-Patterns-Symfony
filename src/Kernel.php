@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\Observer\Display\TemperatureDisplayInterface;
-use App\Observer\WeatherStation\TemperatureTransmissionService;
+use App\DesignPatterns\Observer\Display\TemperatureDisplayInterface;
+use App\DesignPatterns\Observer\WeatherStation\TemperatureTransmissionService;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

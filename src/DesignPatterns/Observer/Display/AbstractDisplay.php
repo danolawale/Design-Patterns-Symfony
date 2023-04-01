@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Observer\Display;
+namespace App\DesignPatterns\Observer\Display;
 
-use App\Observer\WeatherStation\TemperatureTransmissionService;
+use App\DesignPatterns\Observer\WeatherStation\TemperatureTransmissionService;
 
 abstract class AbstractDisplay
 {
